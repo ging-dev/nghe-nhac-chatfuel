@@ -1,0 +1,10 @@
+{
+    "require": {
+        "curl/curl": "^2.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Chatfuel\\": "core"
+        }
+    }
+}
