@@ -15,7 +15,7 @@
       
    $baihat = isset($_GET['baihat']) ? $_GET['baihat'] : 0;
    
-   $curl->get('https://www.nhaccuatui.com/tim-kiem/bai-hat', array('q' => urldecode($baihat), 'b' => 'title', 'sort' => 2));
+   $curl->get('https://www.nhaccuatui.com/tim-kiem/bai-hat', array('q' => $baihat, 'b' => 'title', 'sort' => 2));
    
    // Lấy url bài hát đầu tiên  
    
@@ -30,13 +30,10 @@
    
    $chatfuel = new Chatfuel\Chatfuel(TRUE);        
    
-   if($data['data']['2']) {  
-       $text = 'Bài Hát ' . $data['data']['2'] . ' của ' . $data['data']['3'] . ' phải không?';
-       $chatfuel->sendText($text);
-       $chatfuel->sendImage($data['data']['8']); 
-       $chatfuel->sendAudio($data['data']['11']); 
-   } else {
-       $chatfuel->sendText('Không tìm thấy bài này.');
-   }  
+   $text = 'Bài Hát ' . $data['data']['2'] . ' của ' . $data['data']['3'] . ' phải không?';
+   
+   $chatfuel->sendText($text);
+   $chatfuel->sendImage($data['data']['8']); 
+   $chatfuel->sendAudio($data['data']['11']);    
    
 ?>
