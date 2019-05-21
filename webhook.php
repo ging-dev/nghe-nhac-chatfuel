@@ -19,10 +19,12 @@
    
    // Lấy url bài hát đầu tiên  
    
-   preg_match('#key="(.+?)"#', $curl->response, $url);
+   preg_match('#key="(.+?)"#', $curl->response, $idbaihat);
+   
+   $curl->reset();
     
    
-   $curl->get('https://graph.nhaccuatui.com/v1/songs/' . $url[1] . '?access_token=683501bbad17313976cb2cbe4305fb3d');
+   $curl->get('https://graph.nhaccuatui.com/v1/songs/' . $idbaihat[1] . '?access_token=683501bbad17313976cb2cbe4305fb3d');
    
    $data = json_decode($curl->response, true);
    
