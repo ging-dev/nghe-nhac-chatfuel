@@ -27,7 +27,7 @@
    if ($idbaihat) {
    
    
-       $curl->get('https://m.mp3.zing.vn/bai-hat/' . $idbaihat . '.html');
+       $curl->get('https://m.zingmp3.vn/bai-hat/' . $idbaihat . '.html');
        preg_match('#data-source="(.+?)"#', $curl->response, $key);
    
        // Cài đặt gzip
