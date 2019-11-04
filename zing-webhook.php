@@ -25,15 +25,14 @@
    
    $idbaihat = $res['data'][0]['song'][0]['id'];
    if ($idbaihat) {
-   
+       $curl->setOpt(CURLOPT_ENCODING, 'gzip'); 
    
        $curl->get('https://m.zingmp3.vn/bai-hat/' . $idbaihat . '.html');
        preg_match('#data-source="(.+?)"#', $curl->response, $key);
    
        // Cài đặt gzip
   
-       $curl->setOpt(CURLOPT_ENCODING, 'gzip'); 
-       $curl->get('https://m.mp3.zing.vn/xhr' . $key[1]); 
+       $curl->get('https://m.zingmp3.vn/xhr' . $key[1]); 
        $data = json_decode($curl->response, true);
        
    
